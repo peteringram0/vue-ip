@@ -1,0 +1,30 @@
+{
+  "name": "vue-ip",
+  "version": "0.0.1",
+  "main": "./dist/vue-ip.min.js",
+  "repository": "https://github.com/peteringram0/vue-ip",
+  "author": "Peter Ingram <peter.ingram0@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "webpack-dev-server --watch --progress --open --config webpack.dev.config.js",
+    "build": "webpack --progress --config webpack.prod.config.js",
+    "prepublish": "yarn run build"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "css-loader": "^0.28.8",
+    "pug": "^2.0.0-rc.4",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
+    "vue-loader": "^13.6.2",
+    "vue-template-compiler": "^2.5.13",
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.10.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1"
+  },
+  "dependencies": {
+    "vue": "^2.5.13"
+  }
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue IP</title>
+</head>
+<body>
+<div id="app">
+
+    <vue-ip :on-change="ipChange" placeholder="•" :ip="ip" :port="port"></vue-ip>
+
+    <div>
+        <h5>IP: {{ ip }}</h5>
+        <h5>PORT: {{ port }}</h5>
+    </div>
+
+    <button @click="changeIp">Change IP</button>
+
+</div>
+<script type="text/javascript" src="/build/build.js"></script>
+</body>
+</html>
