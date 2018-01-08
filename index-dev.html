@@ -3,30 +3,47 @@
 <head>
     <meta charset="utf-8">
     <title>Vue IP</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css"
+          integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
     <style>
-        @import url('https://fonts.googleapis.com/css?family=Roboto');
-        body {
-            background-color: gray;
-            margin-top: 20px;
-            font-family: 'Roboto', sans-serif;
+        html {
+            height: 100%;
         }
-        .left {
-            margin-top: 100px;
+        body {
+            background:linear-gradient(to top, #bbd2c5, #536976, #292e49); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+
+            margin-top: 50vh;
+            transform: translateY(-50%);
+        }
+        .info {
+            margin-top: 150px;
+            color: white;
         }
     </style>
 </head>
 <body>
 <div id="app">
 
-    <vue-ip :on-change="ipChange" placeholder="•" :ip="ip" :port="port" theme="material">IP Address</vue-ip>
-
-    <div class="left">
-        <h5>IP: {{ ip }}</h5>
-        <h5 v-show="port">PORT: {{ port }}</h5>
-        <h5>VALID: {{ valid }}</h5>
+    <div class="pure-g">
+        <div class="pure-u-5-5">
+            <vue-ip :on-change="ipChange" :placeholder="true" :ip="ip" :port="port" :theme="theme">IP Address</vue-ip>
+        </div>
+        <div class="pure-u-5-5">
+            <div class="info">
+                <h5>IP: {{ ip }}</h5>
+                <h5 v-show="port">PORT: {{ port }}</h5>
+                <h5>VALID: {{ valid }}</h5>
+            </div>
+        </div>
+        <div class="pure-u-5-5">
+            <button @click="changeIp(false)" class="pure-button pure-button-primary">Change IP</button>
+            <button @click="changeIp(true)" class="pure-button pure-button-primary">Change IP & Port</button>
+            <button @click="materialSwitch" class="pure-button pure-button-primary">Material Design {{ ((theme === 'material') ? 'On' : 'Off')}}</button>
+            <!--<button @click="reset" class="pure-button">Reset</button>-->
+        </div>
     </div>
-
-    <button @click="changeIp">Change IP</button>
 
 </div>
 <script type="text/javascript" src="/build/build.js"></script>

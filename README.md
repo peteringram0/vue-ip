@@ -1,4 +1,4 @@
-# vue-ip
+# Vue IP
 A IP input component built for Vue 2.x
 
 
@@ -49,17 +49,17 @@ new Vue({
 
 
 ### Props
-| Prop        	| Type     	| Options                             	|
-|-------------	|----------	|-------------------------------------	|
-| on-change   	| function 	| Will be called when changes           |
-| ip          	| string   	| null or ip address '127.0.0.1'      	|
-| port        	| string   	| null or '8080'                      	|
-| placeholder 	| string   	| Input placeholder character         	|
-| theme       	| string   	| 'material' (material design themed) 	|
+| Prop        	| Type     	| Options                             	              |
+|-------------	|----------	|---------------------------------------------------- |
+| on-change   	| function 	| Will be called when changes                         |
+| ip          	| string   	| null or ip address '127.0.0.1'      	              |
+| port        	| string   	| null or '8080'                      	              |
+| placeholder 	| boolean   | will show a dummy ip address within the placeholder |
+| theme       	| string   	| 'material' (material design themed) 	              |
 
 
 ### License
 [MIT](http://opensource.org/licenses/MIT)
 
-##### Inspired by
+#### Inspired by
 [lakb248](https://github.com/lakb248/vue-ip-input)

@@ -3,7 +3,7 @@
         .label
             slot
         .segment(v-for="(segment, index) in ipCopy")
-            input(v-model="ipCopy[index]", :placeholder="placeholder", maxlength="3", @paste="paste($event)", @keydown="ipKeydown($event, index)", @focus="ipFocus(index)", @blur="blur", ref="ipSegment")
+            input(v-model="ipCopy[index]", :placeholder="placeholderPos(index)", maxlength="3", @paste="paste($event)", @keydown="ipKeydown($event, index)", @focus="ipFocus(index)", @blur="blur", ref="ipSegment")
         input(v-show="portCopy !== false", v-model="portCopy", :placeholder="placeholder", @paste="paste($event)", @focus="portFocus", @keydown="portKeydown", @blur="blur", ref="portSegment").port
 </template>
 
@@ -11,19 +11,33 @@
     $ip-material-valid := #13ce66
     $ip-material-in-valid := #f25d59
 
-    $ip-material-back := #252525
+    $ip-material-color := #fafafa
     $ip-material-fontSize := inherit
 
-    $ip-transition-speed := .1s
+    $ip-transition-speed := .15s
 
     .vue-ip
         position relative
         display inline-block
+        text-align left
 
         &.material-theme
             transition all $ip-transition-speed ease-in-out
-            border-bottom 1px solid $ip-material-back
+            border-bottom 1px solid $ip-material-color
             padding 5px
+
+            .label
+                display block
+                transition all $ip-transition-speed ease-in-out
+                position absolute
+                width 100%
+                font-size .6rem
+                top -11px
+                color $ip-material-color
+
+            .segment
+                &:after
+                    color $ip-material-color
 
             &.active
                 &.valid
@@ -51,13 +65,13 @@
             input
                 background transparent
                 font-size $ip-material-fontSize
+                color $ip-material-color
+
+                &::placeholder
+                    color rgba($ip-material-color, .3)
 
         .label
-            transition all $ip-transition-speed ease-in-out
-            position absolute
-            width 100%
-            font-size .6rem
-            top -10px
+            display none
 
         &.show-port
             .segment
@@ -78,6 +92,10 @@
             width 40px
             outline none
             border none
+
+            &.port
+                width 60px
+
 </style>
 
 <script>
@@ -93,11 +111,11 @@
                 default: false
             },
             placeholder: {
-                type: String,
-                default: null
+                type: [Boolean],
+                default: false
             },
             theme: {
-                type: String,
+                type: [String, Boolean],
                 default: false
             }
         },
@@ -133,6 +151,29 @@
 
         },
         methods: {
+
+            /**
+             * Placeholder with dummy IP
+             */
+            placeholderPos(segment) {
+
+                // No placeholder
+                if(!this.placeholder)
+                    return '';
+
+                // Dummy IP placeholder
+                switch (segment) {
+                    case 0:
+                        return '192';
+                    case 1:
+                        return '168';
+                    case 2:
+                        return '0';
+                    case 3:
+                        return '1';
+                }
+
+            },
 
             /**
              * On focus clear the current box

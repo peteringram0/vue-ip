@@ -8,9 +8,10 @@ new Vue({
     },
     data() {
         return {
-            ip: null,
-            port: null,
-            valid: null
+            ip: '',
+            port: false,
+            valid: null,
+            theme: 'material'
         };
     },
     beforeMount() {
@@ -40,9 +41,37 @@ new Vue({
         /**
          * Trigger a random ip and port change
          */
-        changeIp() {
+        changeIp(port) {
             this.ip = this.random() + '.' + this.random() + '.' + this.random() + '.' + this.random();
-            this.port = '' + this.random(1, 9) + this.random(1, 9) + this.random(1, 9) + this.random(1, 9);
+
+            if(port)
+                this.port = '' + this.random(1, 9) + this.random(1, 9) + this.random(1, 9) + this.random(1, 9);
+            else
+                this.port = false;
+        },
+
+        /**
+         * Switch on an off material design
+         */
+        materialSwitch() {
+
+            if(!this.theme)
+                this.theme = 'material';
+            else
+                this.theme = false;
+
+        },
+
+        /**
+         * Reset everything
+         */
+        reset() {
+
+            this.ip = '';
+            this.port = false;
+            this.valid = null;
+            this.theme = 'material'
+
         }
 
     }
