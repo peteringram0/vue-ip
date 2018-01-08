@@ -3,8 +3,8 @@
         .label
             slot
         .segment(v-for="(segment, index) in ipCopy")
-            input(v-model="ipCopy[index]", :placeholder="placeholderPos(index)", maxlength="3", @paste="paste($event)", @keydown="ipKeydown($event, index)", @focus="ipFocus(index)", @blur="blur", ref="ipSegment")
-        input(v-show="portCopy !== false", v-model="portCopy", :placeholder="placeholder", @paste="paste($event)", @focus="portFocus", @keydown="portKeydown", @blur="blur", ref="portSegment").port
+            input(type="number", v-model="ipCopy[index]", :placeholder="placeholderPos(index)", maxlength="3", @paste="paste($event)", @keydown="ipKeydown($event, index)", @focus="ipFocus(index)", @blur="blur", ref="ipSegment")
+        input(type="number", v-show="portCopy !== false", v-model="portCopy", :placeholder="((placeholder) ? '8080' : '')", @paste="paste($event)", @focus="portFocus", @keydown="portKeydown", @blur="blur", ref="portSegment").port
 </template>
 
 <style lang="stylus" scoped>
@@ -66,6 +66,13 @@
                 background transparent
                 font-size $ip-material-fontSize
                 color $ip-material-color
+
+                // Hide spinner on MOZ
+                -moz-appearance: textfield
+
+                &::-webkit-outer-spin-button, &::-webkit-inner-spin-button
+                    -webkit-appearance none
+                // Hide spinner on chrome
 
                 &::placeholder
                     color rgba($ip-material-color, .3)
@@ -158,7 +165,7 @@
             placeholderPos(segment) {
 
                 // No placeholder
-                if(!this.placeholder)
+                if (!this.placeholder)
                     return '';
 
                 // Dummy IP placeholder
@@ -303,8 +310,6 @@
 
                 let keyCode = event.keyCode || event.which;
 
-                // @TODO if you put : in the last box then just jump at port box
-
                 // Return or left on keypad
                 if (keyCode === 8 || keyCode === 37) {
 
@@ -313,6 +318,10 @@
                         this.$refs.ipSegment[index - 1].focus();
 
                 }
+
+                // Semi-colon (jump to port number)
+                else if (keyCode === 186)
+                    this.$refs.portSegment.focus();
 
                 setTimeout(() => {
 
@@ -370,9 +379,7 @@
                 if (ip)
                     this.ipToArray(ip);
 
-                // @todo convert port to a number
-
-                // Always up the port
+                // Update the port as long as its a number
                 this.portCopy = port;
 
                 // Update if its valid locally

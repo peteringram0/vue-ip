@@ -46,7 +46,7 @@ new Vue({
 * IP Validation
 * Optional material design theme
 * Optional Port
-
+* No sub dependencies
 
 ### Props
 | Prop        	| Type     	| Options                             	              |

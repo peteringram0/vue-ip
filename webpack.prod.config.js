@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const config = require('./webpack.base.config');
 const path = require('path');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 config.entry = './src/index.js';
 
@@ -12,20 +13,9 @@ config.output = {
 };
 
 config.plugins = [
-    new webpack.optimize.UglifyJsPlugin({
-        mangle: true,
-        compress: {
-            warnings: false,
-            pure_getters: true,
-            unsafe: false,
-            unsafe_comps: false,
-            screw_ie8: true
-        },
-        output: {
-            comments: false,
-        },
-        exclude: [/\.min\.js$/gi]
-    })
+
+    new UglifyJSPlugin()
+
 ];
 
 module.exports = config;
