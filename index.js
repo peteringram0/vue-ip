@@ -8,14 +8,15 @@ new Vue({
     },
     data() {
         return {
-            ip: '127.0.0.1',
-            port: '8888'
+            ip: null,
+            port: null,
+            valid: null
         };
     },
     beforeMount() {
 
         // Random IP Address on load
-        this.changeIp()
+        // this.changeIp()
 
     },
     methods: {
@@ -30,9 +31,10 @@ new Vue({
         /**
          * Triggers on change
          */
-        ipChange(ip, port) {
+        ipChange(ip, port, valid) {
             this.ip = ip;
             this.port = port;
+            this.valid = valid;
         },
 
         /**

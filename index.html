@@ -3,15 +3,27 @@
 <head>
     <meta charset="utf-8">
     <title>Vue IP</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Roboto');
+        body {
+            background-color: gray;
+            margin-top: 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+        .left {
+            margin-top: 100px;
+        }
+    </style>
 </head>
 <body>
 <div id="app">
 
-    <vue-ip :on-change="ipChange" placeholder="•" :ip="ip" :port="port"></vue-ip>
+    <vue-ip :on-change="ipChange" placeholder="•" :ip="ip" :port="port" theme="material">IP Address</vue-ip>
 
-    <div>
+    <div class="left">
         <h5>IP: {{ ip }}</h5>
-        <h5>PORT: {{ port }}</h5>
+        <h5 v-show="port">PORT: {{ port }}</h5>
+        <h5>VALID: {{ valid }}</h5>
     </div>
 
     <button @click="changeIp">Change IP</button>
