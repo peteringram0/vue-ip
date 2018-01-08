@@ -1,14 +1,16 @@
 # vue-ip
 A IP input component built for Vue 2.x
 
+
 ### DEMO
 [Demo](https://peteringram0.github.io/vue-ip/)
 
-### Supports
-* Pasting (with IP or with IP and port)
-* IP Validation
-* Optional material design theme
-* Optional Port
+
+### Install
+````javascript
+$ yarn add vue-ip
+````
+
 
 ### Usage
 ```javascript
@@ -38,8 +40,15 @@ new Vue({
 })
 ```
 
-### Props
 
+### Supports
+* Pasting (with IP or with IP and port)
+* IP Validation
+* Optional material design theme
+* Optional Port
+
+
+### Props
 | Prop        	| Type     	| Options                             	|
 |-------------	|----------	|-------------------------------------	|
 | on-change   	| function 	| Will be called when changes           |
@@ -47,3 +56,10 @@ new Vue({
 | port        	| string   	| null or '8080'                      	|
 | placeholder 	| string   	| Input placeholder character         	|
 | theme       	| string   	| 'material' (material design themed) 	|
+
+
+### License
+[MIT](http://opensource.org/licenses/MIT)
+
+##### Inspired by
+[lakb248](https://github.com/lakb248/vue-ip-input)

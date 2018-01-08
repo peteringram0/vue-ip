@@ -329,6 +329,8 @@
                 if (ip)
                     this.ipToArray(ip);
 
+                // @todo convert port to a number
+
                 // Always up the port
                 this.portCopy = port;
 
