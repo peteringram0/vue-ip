@@ -29,6 +29,50 @@
     <button @click="changeIp">Change IP</button>
 
 </div>
-<script type="text/javascript" src="/build/build.js"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js"></script>
+<script type="text/javascript" src="./dist/vue-ip.min.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        components: {
+            VueIp
+        },
+        data: function () {
+            return {
+                ip: '127.0.0.1',
+                port: '8888',
+                valid: false
+            };
+        },
+        methods: {
+
+            /**
+             * Generate random number
+             */
+            random(min = 1, max = 270) {
+                return Math.floor(Math.random() * max) + min;
+            },
+
+            /**
+             * Triggers on change
+             */
+            ipChange(ip, port, valid) {
+                this.ip = ip;
+                this.port = port;
+                this.valid = valid;
+            },
+
+            /**
+             * Trigger a random ip and port change
+             */
+            changeIp() {
+                this.ip = this.random() + '.' + this.random() + '.' + this.random() + '.' + this.random();
+                this.port = '' + this.random(1, 9) + this.random(1, 9) + this.random(1, 9) + this.random(1, 9);
+            }
+
+        }
+    });
+</script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 A IP input component built for Vue 2.x
 
 ### DEMO
-URL
+[Demo](https://peteringram0.github.io/vue-ip/)
 
 ### Supports
 * Pasting (with IP or with IP and port)
@@ -42,7 +42,7 @@ new Vue({
 
 | Prop        	| Type     	| Options                             	|
 |-------------	|----------	|-------------------------------------	|
-| on-change   	| function 	| N/A                                 	|
+| on-change   	| function 	| Will be called when changes           |
 | ip          	| string   	| null or ip address '127.0.0.1'      	|
 | port        	| string   	| null or '8080'                      	|
 | placeholder 	| string   	| Input placeholder character         	|
