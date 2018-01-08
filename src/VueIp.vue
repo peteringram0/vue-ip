@@ -8,10 +8,11 @@
 </template>
 
 <style lang="stylus" scoped>
-    $ip-material-valid := #13ce66
+    $ip-material-valid := #409EFF
     $ip-material-in-valid := #f25d59
 
-    $ip-material-color := #fafafa
+    $ip-material-color := #e0e0e0
+    $ip-material-color-mute := rgba(250,250,250,0.6);
     $ip-material-fontSize := inherit
 
     $ip-transition-speed := .15s
@@ -23,8 +24,8 @@
 
         &.material-theme
             transition all $ip-transition-speed ease-in-out
-            border-bottom 1px solid $ip-material-color
-            padding 5px
+            border-bottom 1px solid $ip-material-color-mute
+            padding 6px
 
             .label
                 display block
@@ -32,8 +33,8 @@
                 position absolute
                 width 100%
                 font-size .6rem
-                top -11px
-                color $ip-material-color
+                top -20px
+                color $ip-material-color-mute
 
             .segment
                 &:after
