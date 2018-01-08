@@ -1,10 +1,10 @@
 # Vue IP
 A IP input component built for Vue 2.x
 
+![Demo gif](http://www.giphy.com/gifs/l49JMe9WDPzJTamwE)]
 
 ### DEMO
 [Demo](https://peteringram0.github.io/vue-ip/)
-
 
 ### Install
 ````javascript
