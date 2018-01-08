@@ -1,7 +1,7 @@
 # Vue IP
 A IP input component built for Vue 2.x
 
-![Demo gif](http://www.giphy.com/gifs/l49JMe9WDPzJTamwE)]
+![Demo](https://media.giphy.com/media/l49JMe9WDPzJTamwE/giphy.gif)]
 
 ### DEMO
 [Demo](https://peteringram0.github.io/vue-ip/)
