@@ -1,3 +1,2 @@
-import VueIp from './VueIp.vue';
-
+const VueIp = require('./VueIp.vue').default;
 module.exports = VueIp;
