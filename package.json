@@ -1,6 +1,6 @@
 {
   "name": "vue-ip",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "main": "./dist/vue-ip.min.js",
   "repository": "https://github.com/peteringram0/vue-ip",
   "author": "Peter Ingram <peter.ingram0@gmail.com>",
@@ -16,7 +16,7 @@
     "@babel/preset-stage-0": "^7.0.0",
     "babel-loader": "^8.0.5",
     "css-loader": "^2.1.0",
-    "pug": "^2.0.3",
+    "pug": "^3.0.2",
     "pug-loader": "^2.4.0",
     "pug-plain-loader": "^1.0.0",
     "stylus": "^0.54.5",
